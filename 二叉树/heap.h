@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
+#include <time.h>
 
 typedef int HpDataType;
 
@@ -39,3 +40,11 @@ int HeapEmpty(Heap* hp);
 
 //获取堆顶元素
 HpDataType HeapTop(Heap* hp);
+
+//堆的销毁
+void HeapDestory(Heap* hp);
+
+//TopK获取一组数中的前K个元素
+void PrintTopK(int* a, int n, int K);
+
+void TestTopK();

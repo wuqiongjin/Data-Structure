@@ -28,7 +28,8 @@ void TestHp(HpDataType* a, int sz)
 
 int main()
 {
-	int a[] = { 27,15,19,18,28,34,65,49,25,37 };
-	int sz = sizeof(a) / sizeof(a[0]);
-	TestHp(a, sz);
+	//int a[] = { 27,15,19,18,28,34,65,49,25,37 };
+	//int sz = sizeof(a) / sizeof(a[0]);
+	//TestHp(a, sz);
+	TestTopK();
 }
