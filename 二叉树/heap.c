@@ -1,6 +1,5 @@
 #include "heap.h"
 
-
 //向下调整算法
 void AdjustDown(int* a, int n, int root)
 {
