@@ -1,5 +1,6 @@
 #include "heap.h"
 
+
 //向下调整算法
 void AdjustDown(int* a, int n, int root)
 {
@@ -142,40 +143,4 @@ void PrintTopK(int* a, int n, int K)
 	int i = 0;
 	for (i = K; i < n; ++i)
 	{
-		if (a[i] > HeapTop(&hp))
-		{
-			hp._a[0] = a[i];
- 			AdjustDown(hp._a, K, 0);
-		}
-	}
-	for (i = 0; i < K;++i)
-	{
-		printf("%d ", hp._a[i]);
-	}
-}
-
-
-void TestTopK()
-{
-	int n = 10000;
-	int* a = (int*)malloc(sizeof(int)*n);
-	srand((size_t)time(0));
-	int i = 0;
-	for (i = 0;i < n;++i)
-	{
-		a[i] = rand() % 1000000;
-	}
-
-	a[10] = 1000000 + 1;
-	a[11] = 1000000 + 2;
-	a[48] = 1000000 + 3;
-	a[110] = 1000000 + 4;
-	a[219] = 1000000 + 5;
-	a[303] = 1000000 + 6;
-	a[398] = 1000000 + 7;
-	a[420] = 1000000 + 8;
-	a[982] = 1000000 + 9;
-	a[740] = 1000000 + 10;
-
-	PrintTopK(a, n, 10);
-}
+		if (a[i] > HeapTop(
