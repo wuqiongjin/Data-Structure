@@ -1,6 +1,6 @@
 #include "heap.h"
 
-//ÏòÏÂµ÷ÕûËã·¨
+//å‘ä¸‹è°ƒæ•´ç®—æ³•
 void AdjustDown(int* a, int n, int root)
 {
 	int parent = root;
@@ -8,12 +8,12 @@ void AdjustDown(int* a, int n, int root)
 
 	while (child < n)
 	{
-		//×óº¢×ÓºÍÓÒº¢×Ó½øĞĞ±È½Ï£¬Ñ¡³ö½ÏĞ¡µÄ¡¾Èç¹ûÃ»ÓĞÓÒº¢×Ó£¬²»½øĞĞ¸Ã±È½Ï¡¿
+		//å·¦å­©å­å’Œå³å­©å­è¿›è¡Œæ¯”è¾ƒï¼Œé€‰å‡ºè¾ƒå°çš„ã€å¦‚æœæ²¡æœ‰å³å­©å­ï¼Œä¸è¿›è¡Œè¯¥æ¯”è¾ƒã€‘
 		if (child + 1 < n && a[child] > a[child + 1])
 		{
 			child++;
 		}
-		//ÅĞ¶Ïº¢×Ó½ÚµãºÍ¸¸½Úµã¡¾µ÷³ÉĞ¡¶Ñ¡¿
+		//åˆ¤æ–­å­©å­èŠ‚ç‚¹å’Œçˆ¶èŠ‚ç‚¹ã€è°ƒæˆå°å †ã€‘
 		if (a[child] < a[parent])
 		{
 			int tmp = a[child];
@@ -32,14 +32,14 @@ void AdjustDown(int* a, int n, int root)
 
 void HeapCreate(Heap* hp, HpDataType* a, int sz)
 {
-	//¶ÑµÄ¿Õ¼ä¿ª±ÙºÍ³õÊ¼»¯
+	//å †çš„ç©ºé—´å¼€è¾Ÿå’Œåˆå§‹åŒ–
 	hp->_a = (HpDataType*)malloc(sizeof(HpDataType)*sz);
 	hp->_size = sz;
 	hp->_capacity = sz;
-	//Êı¾İµÄ¿½±´
+	//æ•°æ®çš„æ‹·è´
 	memcpy(hp->_a, a, sizeof(HpDataType)*sz);
 
-	//¶ÑµÄ´´½¨
+	//å †çš„åˆ›å»º
 	int i = 0;
 	for (i = (sz - 1 - 1) / 2;i >= 0;--i)
 	{
@@ -49,7 +49,7 @@ void HeapCreate(Heap* hp, HpDataType* a, int sz)
 
 void HeapPush(Heap* hp, HpDataType x)
 {
-	//ÔöÈİ²Ù×÷
+	//å¢å®¹æ“ä½œ
 	if (hp->_size == hp->_capacity)
 	{
 		int newCapacity = 2 * hp->_capacity;
@@ -57,11 +57,11 @@ void HeapPush(Heap* hp, HpDataType x)
 		hp->_capacity = newCapacity;
 	}
 
-	//Ïò¶ÑÖĞ²åÈëÔªËØ
+	//å‘å †ä¸­æ’å…¥å…ƒç´ 
 	hp->_a[hp->_size] = x;
 	hp->_size++;
 
-	//ÏòÉÏµ÷ÕûËã·¨
+	//å‘ä¸Šè°ƒæ•´ç®—æ³•
 	AdjustUp(hp->_a, hp->_size - 1);
 }
 
@@ -72,7 +72,7 @@ void Swap(int* x, int* y)
 	*y = tmp;
 }
 
-//ÏòÉÏµ÷Õû
+//å‘ä¸Šè°ƒæ•´
 void AdjustUp(int* a, int child)
 {
 	while (child > 0)
@@ -142,40 +142,4 @@ void PrintTopK(int* a, int n, int K)
 	int i = 0;
 	for (i = K; i < n; ++i)
 	{
-		if (a[i] > HeapTop(&hp))
-		{
-			hp._a[0] = a[i];
- 			AdjustDown(hp._a, K, 0);
-		}
-	}
-	for (i = 0; i < K;++i)
-	{
-		printf("%d ", hp._a[i]);
-	}
-}
-
-
-void TestTopK()
-{
-	int n = 10000;
-	int* a = (int*)malloc(sizeof(int)*n);
-	srand((size_t)time(0));
-	int i = 0;
-	for (i = 0;i < n;++i)
-	{
-		a[i] = rand() % 1000000;
-	}
-
-	a[10] = 1000000 + 1;
-	a[11] = 1000000 + 2;
-	a[48] = 1000000 + 3;
-	a[110] = 1000000 + 4;
-	a[219] = 1000000 + 5;
-	a[303] = 1000000 + 6;
-	a[398] = 1000000 + 7;
-	a[420] = 1000000 + 8;
-	a[982] = 1000000 + 9;
-	a[740] = 1000000 + 10;
-
-	PrintTopK(a, n, 10);
-}
+		if (a[i] > HeapTop(
