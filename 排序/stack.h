@@ -3,23 +3,24 @@
 #include <stdlib.h>
 #include <assert.h>
 
+
 typedef int STDataType;
 
 typedef struct Stack
 {
 	STDataType* a;
-	int top;//Õ»¶¥
-	int capacity;//ÈİÁ¿
+	int top;//æ ˆé¡¶
+	int capacity;//å®¹é‡
 }Stack;
 
-//Õ»µÄ³õÊ¼»¯
+//æ ˆçš„åˆå§‹åŒ–
 void StackInit(Stack* ps)
 {
 	ps->a = NULL;
 	ps->top = ps->capacity = 0;
 }
 
-//ÈëÕ»
+//å…¥æ ˆ
 
 void StackPush(Stack* ps, STDataType data)
 {
@@ -35,7 +36,7 @@ void StackPush(Stack* ps, STDataType data)
 	ps->top++;
 }
 
-//³öÕ»
+//å‡ºæ ˆ
 
 void StackPop(Stack* ps)
 {
@@ -45,7 +46,7 @@ void StackPop(Stack* ps)
 	ps->top--;
 }
 
-//ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ
+//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 
 int StackEmpty(Stack* ps)
 {
@@ -54,7 +55,7 @@ int StackEmpty(Stack* ps)
 	return ps->top ? 0 : 1;
 }
 
-//»ñÈ¡Õ»¶¥µÄÔªËØ
+//è·å–æ ˆé¡¶çš„å…ƒç´ 
 
 STDataType StackTop(Stack* ps)
 {
@@ -64,7 +65,7 @@ STDataType StackTop(Stack* ps)
 }
 
 
-//Õ»µÄÏú»Ù
+//æ ˆçš„é”€æ¯
 
 void StackDestory(Stack* ps)
 {
