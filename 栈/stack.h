@@ -27,7 +27,7 @@ void StackPush(Stack* ps, STDataType data)
 
 	if (ps->top == ps->capacity)
 	{
-		STDataType newCapacity = ps->capacity == 0 ? 4 : ps->capacity *2;
+		int newCapacity = ps->capacity == 0 ? 4 : ps->capacity *2;
 		ps->a = (STDataType*)realloc(ps->a, sizeof(STDataType)*newCapacity);
 		ps->capacity = newCapacity;
 	}
